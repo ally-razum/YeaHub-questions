@@ -1,0 +1,20 @@
+.yeahub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.yeahub-header__left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.yeahub-header__logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4f46e5;
+}

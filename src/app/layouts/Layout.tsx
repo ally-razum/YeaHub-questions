@@ -1,13 +1,12 @@
 import { Outlet } from "react-router-dom";
 import "./Layout.css"
+import { Header } from "../../widgets/Header/Header";
 
 export function Layout() {
   return (
     <div className="app-layout">
-      <header className="app-header">
-        app-header
-      </header>
-      <main className="app-content" >        
+      <Header />
+      <main className="app-content">
         <Outlet />
       </main>
     </div>
