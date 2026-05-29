@@ -9,7 +9,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: sans-serif; /* Позже заменим на шрифт из макета */
+  font-family: sans-serif; 
 }
 
 ul, ol {
