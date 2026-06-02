@@ -4,11 +4,14 @@ import { SearchQuestions } from "../../features/search-questions";
 import {useSearchParams} from 'react-router-dom'
 
 import "./QuestionsPage.css";
+import { QuestionPagination } from "../../features/question-pagination";
 
 export default function QuestionsPage() {
   const [searchParams] = useSearchParams();
   const title = searchParams.get("title") || "";
-  const { data, isLoading, isError } = useGetQuestionsQuery({ title });
+  const page = Number(searchParams.get("page")) || 1;
+
+  const { data, isLoading, isError } = useGetQuestionsQuery({ title, page });
 
   if (isLoading) return <div>Загрузка вопросов с сервера...</div>;
   if (isError) return <div>Ошибка загрузки данных. Проверь сеть!</div>;
@@ -22,6 +25,7 @@ export default function QuestionsPage() {
             <QuestionCard key={item.id} question={item} />
           ))}
         </div>
+        <QuestionPagination />
       </section>
       <aside className="questions-page__sidebar">
         <div className="questions-page__filters-placeholder">

@@ -1,0 +1,31 @@
+.pagination {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px; /* отступ от карточек */
+}
+
+.pagination__button {
+  padding: 8px 16px;
+  border: 1px solid #E2E8F0;
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination__button:hover:not(:disabled) {
+  background-color: #F7FAFC;
+  border-color: #CBD5E0;
+}
+
+.pagination__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination__current {
+  font-weight: 600;
+  color: #2D3748;
+}
