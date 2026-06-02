@@ -1,5 +1,6 @@
 import { useGetQuestionsQuery } from "../../entities/question/api/questionApi";
 import { QuestionCard } from "../../entities/question/ui/QuestionCard/QuestionCard";
+import { SearchQuestions } from "../../features/search-questions";
 
 import "./QuestionsPage.css";
 
@@ -20,7 +21,7 @@ export default function QuestionsPage() {
       </section>
       <aside className="questions-page__sidebar">
         <div className="questions-page__filters-placeholder">
-          QuestionsFilters справа
+          <SearchQuestions />
         </div>
       </aside>
     </div>
