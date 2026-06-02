@@ -1,11 +1,15 @@
 import { useGetQuestionsQuery } from "../../entities/question/api/questionApi";
 import { QuestionCard } from "../../entities/question/ui/QuestionCard/QuestionCard";
 import { SearchQuestions } from "../../features/search-questions";
+import {useSearchParams} from 'react-router-dom'
 
 import "./QuestionsPage.css";
 
 export default function QuestionsPage() {
-  const { data, isLoading, isError } = useGetQuestionsQuery({});
+  const [searchParams] = useSearchParams();
+  const title = searchParams.get("title") || "";
+  const { data, isLoading, isError } = useGetQuestionsQuery({ title });
+
   if (isLoading) return <div>Загрузка вопросов с сервера...</div>;
   if (isError) return <div>Ошибка загрузки данных. Проверь сеть!</div>;
 
