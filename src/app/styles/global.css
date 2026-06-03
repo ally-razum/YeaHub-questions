@@ -1,0 +1,15 @@
+:root {
+  /* Фирменные цвета Yeahub из макета Figma  */
+  --color-primary: #6A0BFF;        /* фиолетовый */
+  --color-primary-light: #F5F3FF;  /* светло-фиолетовый для эктив кнопок */
+  --color-text-main: #2D3748;      /* темный (текст) */
+  --color-text-muted: #474747;     /* серый  */
+  --color-border: #E2E8F0;         /* серая рамка  */
+  --color-border-light: #E8E8E8;   /*  рамка инпута */
+
+  /* радиусы скругления (кнопки инпут) */
+  --radius-button: 12px;
+  --radius-sidebar: 24px;
+
+  --font-main: 'Manrope', sans-serif;
+}

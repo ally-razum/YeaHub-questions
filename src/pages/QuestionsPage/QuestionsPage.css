@@ -51,3 +51,23 @@
   text-align: center;
   color: #6b7280;
 }
+
+.questions-page__sidebar-title {
+  width: 132px;
+  height: 17px;
+
+  font-family: 'Manrope', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  
+  display: flex;
+  align-items: center;
+  color: #474747; 
+  
+  font-feature-settings: 'ss01' on, 'cv01' on, 'cv11' on;
+  
+  margin: 0; 
+}
+

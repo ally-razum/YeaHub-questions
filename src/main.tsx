@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import { store } from "./app/providers/StoreProvider/store";
 
 import "./app/styles/normalize.css";
+import "./app/styles/global.css";
+
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

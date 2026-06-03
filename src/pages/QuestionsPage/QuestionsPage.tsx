@@ -6,6 +6,7 @@ import {useSearchParams} from 'react-router-dom'
 import "./QuestionsPage.css";
 import { QuestionPagination } from "../../features/question-pagination";
 import { FilterByComplexity } from "../../features/filter-by-complexity/ui/FilterByComplexity";
+import { FilterByRating } from "../../features/filter-by-rating";
 
 export default function QuestionsPage() {
   const [searchParams] = useSearchParams();
@@ -29,10 +30,15 @@ export default function QuestionsPage() {
         <QuestionPagination />
       </section>
       <aside className="questions-page__sidebar">
-        
-          <SearchQuestions />
-          <FilterByComplexity />
-        
+        <SearchQuestions />
+
+        <h3 className="questions-page__sidebar-title">Уровень сложности</h3>
+        <FilterByComplexity />
+
+        <h3 className="questions-page__sidebar-title">Рейтинг</h3>
+        <FilterByRating />
+
+        <h3 className="questions-page__sidebar-title">Статус</h3>
       </aside>
     </div>
   );

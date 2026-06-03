@@ -18,12 +18,18 @@ export function QuestionPagination() {
   }
 
   return (
-    <div >
-      <button onClick={handlePrev} disabled={page === 1}>
+    <div className="pagination">
+      <button
+        className="pagination__button"
+        onClick={handlePrev}
+        disabled={page === 1}
+      >
         ←
       </button>
-      <span>{page}</span>
-      <button onClick={handleNext}>→</button>
+      <span className="pagination__current ">{page}</span>
+      <button className="pagination__button" onClick={handleNext}>
+        →
+      </button>
     </div>
   );
 }

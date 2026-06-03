@@ -12,7 +12,6 @@ export function FilterByComplexity() {
     { id: 4, label: "9 - 10", value: 10 },
   ];
 
-
   function handleComplexityChange(value: number) {
     searchParams.set("page", "1");
 
