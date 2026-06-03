@@ -5,6 +5,7 @@ import {useSearchParams} from 'react-router-dom'
 
 import "./QuestionsPage.css";
 import { QuestionPagination } from "../../features/question-pagination";
+import { FilterByComplexity } from "../../features/filter-by-complexity/ui/FilterByComplexity";
 
 export default function QuestionsPage() {
   const [searchParams] = useSearchParams();
@@ -28,9 +29,10 @@ export default function QuestionsPage() {
         <QuestionPagination />
       </section>
       <aside className="questions-page__sidebar">
-        <div className="questions-page__filters-placeholder">
+        
           <SearchQuestions />
-        </div>
+          <FilterByComplexity />
+        
       </aside>
     </div>
   );
