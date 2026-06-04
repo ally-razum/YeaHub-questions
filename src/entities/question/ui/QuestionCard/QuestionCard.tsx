@@ -18,7 +18,10 @@ export function QuestionCard({ question }: QuestionCardProps) {
       {isOpen && (
         <div className="question-card__content">
           <p className="question-card__description">{question.description}</p>
-          <div className="question-card__answer">{question.longAnswer}</div>
+          <div
+            className="question-card__answer"
+            dangerouslySetInnerHTML={{ __html: question.longAnswer }}
+          ></div>
         </div>
       )}
     </div>
