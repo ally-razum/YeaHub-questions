@@ -11,10 +11,9 @@ import { FilterByRating } from "../../features/filter-by-rating";
 export default function QuestionsPage() {
   const [searchParams] = useSearchParams();
   const title = searchParams.get("title") || "";
-  const page = Number(searchParams.get("page")) || 1;
+  const page = Number(searchParams.get("page")) || "";
   const complexity = searchParams.get("complexity") || "";
   const rate = searchParams.get("rate") || "";
-
 
   const { data, isLoading, isError } = useGetQuestionsQuery({
     title,
@@ -23,8 +22,12 @@ export default function QuestionsPage() {
     rate,
   });
 
-  if (isLoading) return <div>Загрузка вопросов с сервера...</div>;
-  if (isError) return <div>Ошибка загрузки данных. Проверь сеть!</div>;
+const totalCount = data?.total || 0;
+const backendLimit = data?.limit || 10; 
+const totalPages = Math.ceil(totalCount / backendLimit);
+
+if (isLoading) return <div>Загрузка вопросов с сервера...</div>;
+if (isError) return <div>Ошибка загрузки данных. Проверь сеть!</div>;
 
   return (
     <div className="questions-page">
@@ -35,7 +38,7 @@ export default function QuestionsPage() {
             <QuestionCard key={item.id} question={item} />
           ))}
         </div>
-        <QuestionPagination />
+        <QuestionPagination totalPages={totalPages} />
       </section>
       <aside className="questions-page__sidebar">
         <SearchQuestions />
