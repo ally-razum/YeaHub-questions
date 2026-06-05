@@ -12,8 +12,16 @@ export default function QuestionsPage() {
   const [searchParams] = useSearchParams();
   const title = searchParams.get("title") || "";
   const page = Number(searchParams.get("page")) || 1;
+  const complexity = searchParams.get("complexity") || "";
+  const rate = searchParams.get("rate") || "";
 
-  const { data, isLoading, isError } = useGetQuestionsQuery({ title, page });
+
+  const { data, isLoading, isError } = useGetQuestionsQuery({
+    title,
+    page,
+    complexity,
+    rate,
+  });
 
   if (isLoading) return <div>Загрузка вопросов с сервера...</div>;
   if (isError) return <div>Ошибка загрузки данных. Проверь сеть!</div>;
