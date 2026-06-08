@@ -7,6 +7,7 @@ import "./QuestionsPage.css";
 import { QuestionPagination } from "../../features/question-pagination";
 import { FilterByComplexity } from "../../features/filter-by-complexity/ui/FilterByComplexity";
 import { FilterByRating } from "../../features/filter-by-rating";
+import { FilterByCategory } from "../../features/filter-by-category";
 
 export default function QuestionsPage() {
   const [searchParams] = useSearchParams();
@@ -14,12 +15,15 @@ export default function QuestionsPage() {
   const page = Number(searchParams.get("page")) || 1;
   const complexity = searchParams.get("complexity") || "";
   const rate = searchParams.get("rate") || "";
+  const specializationId = searchParams.get("specializationId") || "";
+
 
   const { data, isLoading, isError } = useGetQuestionsQuery({
     title,
     page,
     complexity,
     rate,
+    specializationId,
   });
 
 const totalCount = data?.total || 0;
@@ -42,13 +46,12 @@ if (isError) return <div>Ошибка загрузки данных. Прове�
       </section>
       <aside className="questions-page__sidebar">
         <SearchQuestions />
-
+        <h3 className="questions-page__sidebar-title">Категории вопросов</h3>
+        <FilterByCategory />
         <h3 className="questions-page__sidebar-title">Уровень сложности</h3>
         <FilterByComplexity />
-
         <h3 className="questions-page__sidebar-title">Рейтинг</h3>
         <FilterByRating />
-
         <h3 className="questions-page__sidebar-title">Статус</h3>
       </aside>
     </div>

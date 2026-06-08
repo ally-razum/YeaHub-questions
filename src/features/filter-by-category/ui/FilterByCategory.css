@@ -1,0 +1,42 @@
+.category-filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  max-width: 312px;
+}
+
+.category-btn {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+
+  min-width: 80px; 
+  height: 42px; 
+
+  background: #FFFFFF;
+  border: 1px solid #BABABA;
+  border-radius: var(--radius-button); 
+  
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.category-btn:hover {
+  background-color: #F7FAFC;
+  border-color: #A0AEC0;
+}
+
+.category-btn--active {
+  border: 1px solid var(--color-primary);
+  color: #FFFFFF;
+  background-color: var(--color-primary); 
+}
