@@ -11,7 +11,7 @@ import { FilterByRating } from "../../features/filter-by-rating";
 export default function QuestionsPage() {
   const [searchParams] = useSearchParams();
   const title = searchParams.get("title") || "";
-  const page = Number(searchParams.get("page")) || "";
+  const page = Number(searchParams.get("page")) || 1;
   const complexity = searchParams.get("complexity") || "";
   const rate = searchParams.get("rate") || "";
 

@@ -19,7 +19,7 @@ export function QuestionPagination({ totalPages }: QuestionPaginationProps) {
 
   function handleNext() {
     //сследующая стр
-    console.log("ТЫК ТЫК")
+    console.log("ТЫК ТЫК");
     if (page < totalPages) {
       const newParams = new URLSearchParams(searchParams);
       newParams.set("page", String(page + 1));
@@ -38,6 +38,8 @@ export function QuestionPagination({ totalPages }: QuestionPaginationProps) {
   // ранжирование пагинации -  расстановка "..." в зависимости от того , где юзер
   function getPaginationRange() {
     const totalNumbers = 6;
+    const endRange = Math.min(page + 5, totalPages); //это с прода кол-во чисел
+    const middleRange = range(page - 1, endRange);
 
     // если стр меньше 7 то ...не нужно
     if (totalPages <= 7) {
@@ -56,8 +58,12 @@ export function QuestionPagination({ totalPages }: QuestionPaginationProps) {
       return [1, "...", ...rightRange];
     }
 
+    //когда не рисовать ...справа
+    if (endRange >= totalPages - 1) {
+      return [1, "...", ...middleRange];
+    }
+
     // в середине
-    const middleRange = range(page - 1, page + 5); //это с прода кол-во чисел
     return [1, "...", ...middleRange, "...", totalPages];
   }
 
