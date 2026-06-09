@@ -15,7 +15,7 @@ export default function QuestionsPage() {
   const page = Number(searchParams.get("page")) || 1;
   const complexity = searchParams.get("complexity") || "";
   const rate = searchParams.get("rate") || "";
-  const specializationId = searchParams.get("specializationId") || "";
+  const skills = searchParams.get("skills") || "";
 
 
   const { data, isLoading, isError } = useGetQuestionsQuery({
@@ -23,7 +23,7 @@ export default function QuestionsPage() {
     page,
     complexity,
     rate,
-    specializationId,
+    skills,
   });
 
 const totalCount = data?.total || 0;
