@@ -10,7 +10,7 @@ export function FilterByCategory() {
   const currentSkills = searchParams.get("skills") || "";
    const { data: skillsData, isLoading, isError } = useGetSkillsQuery();
 
-  function handleSpecializationChange(id: number) {
+  function handleSkillsChange(id: number) {
     searchParams.set("page", "1");
 
     if (String(id) === currentSkills) {
@@ -38,7 +38,7 @@ export function FilterByCategory() {
         return (
           <button
             key={element.id}
-            onClick={() => handleSpecializationChange(element.id)}
+            onClick={() => handleSkillsChange(element.id)}
             className={`category-btn ${isActive ? "category-btn--active" : ""}`}
           >
             {element.title}

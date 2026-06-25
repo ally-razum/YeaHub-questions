@@ -1,0 +1,72 @@
+.specialization-filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0px;
+  gap: 12px; 
+  width: 100%;
+  margin-bottom: 24px; 
+}
+
+.spec-btn {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px; 
+  
+  height: 42px; 
+  border-radius: var(--radius-button); 
+  
+  background: #FFFFFF;
+  border: 1px solid var(--color-border); 
+  color: var(--color-text-main); 
+  font-size: 15px;
+  font-weight: 600; 
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.spec-btn:hover {
+  background-color: #F7FAFC;
+  border-color: #CBD5E0;
+}
+
+.spec-btn--active {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-primary-light); 
+}
+
+.spec-toggle-btn {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+
+  width: 108px;
+  height: 19px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary); 
+  text-decoration: underline;  
+  transition: color 0.15s ease;
+}
+
+.spec-toggle-btn:hover {
+  color: var(--color-text-main); 
+}
