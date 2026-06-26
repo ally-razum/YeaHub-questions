@@ -3,10 +3,7 @@ import type { SkillsResponse } from "../model/types";
 
 export const skillApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getSkills: build.query<
-      SkillsResponse,
-      { specializationId?: number } | void
-    >({
+    getSkills: build.query< SkillsResponse,{ specializationId?: number } | void>({
       query: (params) => ({
         url: "/skills",
         params: {

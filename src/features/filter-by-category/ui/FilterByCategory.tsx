@@ -1,26 +1,15 @@
-import { useSearchParams } from "react-router-dom";
-import { useGetSkillsQuery } from "../../../entities/skills/api/skillApi"; 
-
-
+import { useCategoryFilter } from "../hooks/useCategoryFilters";
 import "./FilterByCategory.css";
 
-
 export function FilterByCategory() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const currentSkills = searchParams.get("skills") || "";
-   const { data: skillsData, isLoading, isError } = useGetSkillsQuery();
-
-  function handleSkillsChange(id: number) {
-    searchParams.set("page", "1");
-
-    if (String(id) === currentSkills) {
-      searchParams.delete("skills");
-    } else {
-      searchParams.set("skills", String(id));
-    }
-    setSearchParams(searchParams);
-  }
-
+  const {
+    skillsData,
+    isLoading,
+    isError,
+    currentSkillsID,
+    handleSkillsChange,
+  } = useCategoryFilter();
+ 
  if (isLoading)
    return (
      <div className="category-filters__loading">Загрузка категорий...</div>
@@ -33,7 +22,7 @@ export function FilterByCategory() {
   return (
     <div className="category-filters">
       {skillsData?.data.map((element) => {
-        const isActive = currentSkills === String(element.id);
+        const isActive = currentSkillsID === String(element.id);
 
         return (
           <button
