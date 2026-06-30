@@ -1,5 +1,6 @@
 import { useState } from "react";
-import type { Question } from "../../model/types"; 
+import { useNavigate } from "react-router-dom";
+import type { Question } from "../../model/types";
 import { marked } from "marked"; //чтение Markdown файлов
 import "./QuestionCard.css";
 
@@ -9,6 +10,7 @@ interface QuestionCardProps {
 
 export function QuestionCard({ question }: QuestionCardProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   function getCleanHtml(text: string): string {
     if (!text) return "";
 
@@ -16,9 +18,8 @@ export function QuestionCard({ question }: QuestionCardProps) {
       return marked.parse(text) as string; //если Markdown парсим в HTML
     }
 
-    return text; 
+    return text;
   }
-
 
   return (
     <div className="question-card">
@@ -28,11 +29,28 @@ export function QuestionCard({ question }: QuestionCardProps) {
       </div>
       {isOpen && (
         <div className="question-card__content">
-          <p className="question-card__description">{question.description}</p>
+          <div className="question-card__meta">
+             <div className="question-card__meta-info">
+            <span className="question-card__meta-item">
+              Рейтинг: {question.rate}
+            </span>
+            <span className="question-card__meta-item">
+              Сложность: {question.complexity}
+            </span>
+            </div>
+            <button
+              className="question-card__more-btn"
+              onClick={() => navigate(`/questions/${question.id}`)}
+            >
+              Подробнее
+            </button>
+          </div>
+          <p className="question-card__description">{question.description} </p>
+
           <div
             className="question-card__answer"
             dangerouslySetInnerHTML={{
-              __html: getCleanHtml(question.longAnswer),
+              __html: getCleanHtml(question.shortAnswer),
             }}
           ></div>
         </div>
