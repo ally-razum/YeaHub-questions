@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Question } from "../../model/types";
-import { marked } from "marked"; //чтение Markdown файлов
+import { getCleanHtml } from "../../../../shared/lib/helpers/getCleanHtml"; 
 import "./QuestionCard.css";
 
 interface QuestionCardProps {
@@ -11,15 +11,6 @@ interface QuestionCardProps {
 export function QuestionCard({ question }: QuestionCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  function getCleanHtml(text: string): string {
-    if (!text) return "";
-
-    if (text.includes("#") || text.includes("```")) {
-      return marked.parse(text) as string; //если Markdown парсим в HTML
-    }
-
-    return text;
-  }
 
   return (
     <div className="question-card">

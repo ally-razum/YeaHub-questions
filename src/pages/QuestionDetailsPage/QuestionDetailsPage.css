@@ -1,0 +1,29 @@
+.question-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 20px;
+
+  width: 100%;
+  max-width: 804px;
+  
+  margin: 40px auto; 
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.question-details-container h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-main, #2D3748);
+  margin: 0;
+}
+
+.question-details-container h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-muted, #4A5568);
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
