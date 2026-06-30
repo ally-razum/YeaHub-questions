@@ -1,5 +1,6 @@
 import { useFilterParam } from "../../../shared/lib/hooks/useFilterParam";
 import { complexityRanges } from "../../../shared/config/filterConstants";
+import { FilterButton } from "../../../shared/ui/FilterButton/FilterButton";
 import "./FilterByComplexity.css";
 
 export function FilterByComplexity() {
@@ -14,13 +15,13 @@ export function FilterByComplexity() {
         const isActive = currentComplexity === String(element.value);
 
         return (
-          <button
+          <FilterButton
             key={element.id}
+            label={element.label}
+            isActive={isActive}
             onClick={() => handleComplexityChange(element.value)}
-            className={`complexity-btn ${isActive ? "complexity-btn--active" : ""}`}
-          >
-            {element.label}
-          </button>
+            baseClassName="complexity-btn"
+          />
         );
       })}
     </div>

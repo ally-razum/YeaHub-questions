@@ -1,3 +1,4 @@
+import { FilterButton } from "../../../shared/ui/FilterButton/FilterButton";
 import { useCategoryFilter } from "../hooks/useCategoryFilters";
 import "./FilterByCategory.css";
 
@@ -25,13 +26,13 @@ export function FilterByCategory() {
         const isActive = currentSkillsID === String(element.id);
 
         return (
-          <button
+          <FilterButton
             key={element.id}
+            label={element.title} // Для скиллов это title, а не label
+            isActive={isActive}
             onClick={() => handleSkillsChange(element.id)}
-            className={`category-btn ${isActive ? "category-btn--active" : ""}`}
-          >
-            {element.title}
-          </button>
+            baseClassName="category-btn"
+          />
         );
       })}
     </div>

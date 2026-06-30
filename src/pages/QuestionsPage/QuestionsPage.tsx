@@ -57,7 +57,6 @@ export default function QuestionsPage() {
         <FilterByComplexity />
         <h3 className="questions-page__sidebar-title">Рейтинг</h3>
         <FilterByRating />
-        <h3 className="questions-page__sidebar-title">Статус</h3>
       </aside>
     </div>
   );

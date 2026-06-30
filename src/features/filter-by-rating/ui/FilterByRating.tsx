@@ -1,5 +1,6 @@
 import { useFilterParam } from "../../../shared/lib/hooks/useFilterParam";
 import { ratingOptions } from "../../../shared/config/filterConstants";
+import { FilterButton } from "../../../shared/ui/FilterButton/FilterButton";
 import "./FilterByRating.css";
 
 export function FilterByRating() {
@@ -13,13 +14,13 @@ const { currentValue: currentRating, toggleParam: handleRatingChange } =
       const isActive = currentRating === String(element.value);
 
         return (
-          <button
+          <FilterButton
             key={element.id}
+            label={element.label}
+            isActive={isActive}
             onClick={() => handleRatingChange(element.value)}
-            className={`rating-btn ${isActive ? "rating-btn--active" : ""}`}
-          >
-            {element.label}
-          </button>
+            baseClassName="rating-btn"
+          />
         );
       })}
     </div>
