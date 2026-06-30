@@ -1,10 +1,12 @@
 import { useSearchParams } from "react-router-dom";
 import { useGetSkillsQuery } from "../../../entities/skills/api/skillApi";
+import { useFilterParam } from "../../../shared/lib/hooks/useFilterParam";
 
 export function useCategoryFilter() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const currentSkillsID = searchParams.get("skills") || "";
+  const [searchParams] = useSearchParams();
   const currentSpecId = searchParams.get("specializationId") || "";
+  const { currentValue: currentSkillsID, toggleParam: handleSkillsChange } =
+    useFilterParam("skills");
 
   const {
     data: skillsData,
@@ -20,17 +22,6 @@ export function useCategoryFilter() {
         skill.specializations.some((spec) => String(spec.id) === currentSpecId),
       )
     : allSkills;
-
-  function handleSkillsChange(id: number) {
-    searchParams.set("page", "1");
-
-    if (String(id) === currentSkillsID) {
-      searchParams.delete("skills");
-    } else {
-      searchParams.set("skills", String(id));
-    }
-    setSearchParams(searchParams);
-  }
 
   return {
     skillsData: skillsData

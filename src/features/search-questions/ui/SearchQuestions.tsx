@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useDebounce } from "../../../shared/lib/useDebounce";
+import { useDebounce } from "../../../shared/lib/hooks/useDebounce";
 import "./SearchQuestions.css";
 
 export function SearchQuestions() {
