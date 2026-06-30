@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import type { Question } from "../../model/types";
-import { getCleanHtml } from "../../../../shared/lib/helpers/getCleanHtml"; 
+import type { Question } from "@/entities/question/model/types";
+import { getCleanHtml } from "@/shared/lib/helpers/getCleanHtml"; 
 import "./QuestionCard.css";
 
 interface QuestionCardProps {

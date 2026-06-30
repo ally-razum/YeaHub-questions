@@ -1,12 +1,10 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-const QuestionsPage = lazy(
-  () => import("../../pages/QuestionsPage/QuestionsPage"),
-);
+const QuestionsPage = lazy(() => import("@/pages/QuestionsPage/QuestionsPage"));
 const QuestionDetailsPage = lazy(
-  () => import("../../pages/QuestionDetailsPage/QuestionDetailsPage"),
+  () => import("@/pages/QuestionDetailsPage/QuestionDetailsPage"),
 );
-const NotFound = lazy(() => import("../../pages/NotFound/NotFound"));
+const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 import { Layout } from "../layouts/Layout";
 
 const router = createBrowserRouter([

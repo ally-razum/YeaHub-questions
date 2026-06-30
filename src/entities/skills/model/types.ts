@@ -1,4 +1,3 @@
-// Импортируем тип специализации из соседней папки сущностей
 import type { SpecializationItem } from "../../specialization/model/types";
 
 export interface SkillCreator {

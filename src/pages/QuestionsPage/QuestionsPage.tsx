@@ -1,14 +1,14 @@
-import { useGetQuestionsQuery } from "../../entities/question/api/questionApi";
-import { QuestionCard } from "../../entities/question/ui/QuestionCard/QuestionCard";
-import { SearchQuestions } from "../../features/search-questions";
+import { useGetQuestionsQuery } from "@/entities/question/api/questionApi";
+import { QuestionCard } from "@/entities/question/ui/QuestionCard/QuestionCard";
+import { SearchQuestions } from "@/features/search-questions";
 import { useSearchParams } from "react-router-dom";
 
 import "./QuestionsPage.css";
-import { QuestionPagination } from "../../features/question-pagination";
-import { FilterByComplexity } from "../../features/filter-by-complexity/ui/FilterByComplexity";
-import { FilterByRating } from "../../features/filter-by-rating";
-import { FilterByCategory } from "../../features/filter-by-category";
-import { FilterBySpecialization } from "../../features/filter-by-specialisation/ui/FilterBySpecialization";
+import { QuestionPagination } from "@/features/question-pagination";
+import { FilterByComplexity } from "@/features/filter-by-complexity/ui/FilterByComplexity";
+import { FilterByRating } from "@/features/filter-by-rating";
+import { FilterByCategory } from "@/features/filter-by-category";
+import { FilterBySpecialization } from "@/features/filter-by-specialisation/ui/FilterBySpecialization";
 
 export default function QuestionsPage() {
   const [searchParams] = useSearchParams();

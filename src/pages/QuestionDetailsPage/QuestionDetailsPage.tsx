@@ -1,6 +1,6 @@
-import { useGetQuestionByIdQuery } from "../../entities/question/api/questionApi";
+import { useGetQuestionByIdQuery } from "@/entities/question/api/questionApi";
 import { useParams, useNavigate } from "react-router-dom";
-import { getCleanHtml } from "../../shared/lib/helpers/getCleanHtml";
+import { getCleanHtml } from "@/shared/lib/helpers/getCleanHtml";
 import "./QuestionDetailsPage.css";
 
 export default function QuestionDetailsPage() {

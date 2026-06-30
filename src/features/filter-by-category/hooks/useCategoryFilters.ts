@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
-import { useGetSkillsQuery } from "../../../entities/skills/api/skillApi";
-import { useFilterParam } from "../../../shared/lib/hooks/useFilterParam";
+import { useGetSkillsQuery } from "@/entities/skills/api/skillApi";
+import { useFilterParam } from "@/shared/lib/hooks/useFilterParam";
 
 export function useCategoryFilter() {
   const [searchParams] = useSearchParams();

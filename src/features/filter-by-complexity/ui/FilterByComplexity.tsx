@@ -1,6 +1,6 @@
-import { useFilterParam } from "../../../shared/lib/hooks/useFilterParam";
-import { complexityRanges } from "../../../shared/config/filterConstants";
-import { FilterButton } from "../../../shared/ui/FilterButton/FilterButton";
+import { useFilterParam } from "@/shared/lib/hooks/useFilterParam";
+import { complexityRanges } from "@/shared/config/filterConstants";
+import { FilterButton } from "@/shared/ui/FilterButton/FilterButton";
 import "./FilterByComplexity.css";
 
 export function FilterByComplexity() {

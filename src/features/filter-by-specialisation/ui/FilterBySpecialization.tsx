@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useGetSpecializationsQuery } from "../../../entities/specialization/api/specializationApi";
-import { useFilterParam } from "../../../shared/lib/hooks/useFilterParam";
+import { useGetSpecializationsQuery } from "@/entities/specialization/api/specializationApi";
+import { useFilterParam } from "@/shared/lib/hooks/useFilterParam";
 import "./FilterBySpecialization.css";
 
 export function FilterBySpecialization() {
