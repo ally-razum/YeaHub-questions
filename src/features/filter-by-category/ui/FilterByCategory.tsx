@@ -16,9 +16,7 @@ export function FilterByCategory() {
      <div className="category-filters__loading">Загрузка категорий...</div>
    );
 
- if (isError)
-   return <div className="category-filters__error">Ошибка загрузки</div>;
-
+   if (isError) return null;
 
   return (
     <div className="category-filters">
@@ -28,7 +26,7 @@ export function FilterByCategory() {
         return (
           <FilterButton
             key={element.id}
-            label={element.title} // Для скиллов это title, а не label
+            label={element.title} 
             isActive={isActive}
             onClick={() => handleSkillsChange(element.id)}
             baseClassName="category-btn"

@@ -34,19 +34,31 @@ export default function QuestionsPage() {
   const totalPages = Math.ceil(totalCount / backendLimit);
 
   if (isLoading) return <div>Загрузка вопросов с сервера...</div>;
-  if (isError) return <div>Ошибка загрузки данных. Проверь сеть!</div>;
+  // if (isError) return <div>Ошибка загрузки данных. Проверь сеть!</div>;
 
   return (
     <div className="questions-page">
       <section className="questions-page__main-container">
         <h1 className="questions-page__title">Вопросы </h1>
         <div className="questions-page__main">
-          {data?.data.map((item) => (
+          {isError && (
+            <div className="questions-page__error-state">
+              ⚠️ Ошибка загрузки данных. Проверьте соединение с сервером!
+            </div>
+          )}
+          {!isError && data?.data.length === 0 && (
+            <div className="questions-page__empty-state">
+              🔍 По вашему запросу ничего не найдено. Попробуйте изменить
+              параметры фильтров или поиска!
+            </div>
+          )}
+          {!isError && data?.data.map((item) => (
             <QuestionCard key={item.id} question={item} />
           ))}
         </div>
         <QuestionPagination totalPages={totalPages} />
       </section>
+      {!isError && (
       <aside className="questions-page__sidebar">
         <SearchQuestions />
         <h3 className="questions-page__sidebar-title">Специализация</h3>
@@ -58,6 +70,7 @@ export default function QuestionsPage() {
         <h3 className="questions-page__sidebar-title">Рейтинг</h3>
         <FilterByRating />
       </aside>
+      )}
     </div>
   );
 }

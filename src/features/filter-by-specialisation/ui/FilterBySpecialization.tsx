@@ -11,8 +11,7 @@ export function FilterBySpecialization() {
 
   if (isLoading)
     return <div className="spec-filters__loading">Загрузка направлений...</div>;
-  if (isError)
-    return <div className="spec-filters__error">Ошибка загрузки</div>;
+  if (isError) return null;
 
   const allSpecs = specData?.data || [];
   const visibleSpecs = isExpanded ? allSpecs : allSpecs.slice(0, 5);
