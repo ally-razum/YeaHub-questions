@@ -33,14 +33,12 @@ export default function QuestionsPage() {
   const backendLimit = data?.limit || 10;
   const totalPages = Math.ceil(totalCount / backendLimit);
 
-  if (isLoading) return <div>Загрузка вопросов с сервера...</div>;
-  // if (isError) return <div>Ошибка загрузки данных. Проверь сеть!</div>;
-
   return (
     <div className="questions-page">
       <section className="questions-page__main-container">
         <h1 className="questions-page__title">Вопросы </h1>
         <div className="questions-page__main">
+          {isLoading && <div>Загрузка вопросов с сервера...</div>}
           {isError && (
             <div className="questions-page__error-state">
               ⚠️ Ошибка загрузки данных. Проверьте соединение с сервером!
@@ -52,24 +50,25 @@ export default function QuestionsPage() {
               параметры фильтров или поиска!
             </div>
           )}
-          {!isError && data?.data.map((item) => (
-            <QuestionCard key={item.id} question={item} />
-          ))}
+          {!isError &&
+            data?.data.map((item) => (
+              <QuestionCard key={item.id} question={item} />
+            ))}
         </div>
         <QuestionPagination totalPages={totalPages} />
       </section>
       {!isError && (
-      <aside className="questions-page__sidebar">
-        <SearchQuestions />
-        <h3 className="questions-page__sidebar-title">Специализация</h3>
-        <FilterBySpecialization />
-        <h3 className="questions-page__sidebar-title">Навыки</h3>
-        <FilterByCategory />
-        <h3 className="questions-page__sidebar-title">Уровень сложности</h3>
-        <FilterByComplexity />
-        <h3 className="questions-page__sidebar-title">Рейтинг</h3>
-        <FilterByRating />
-      </aside>
+        <aside className="questions-page__sidebar">
+          <SearchQuestions />
+          <h3 className="questions-page__sidebar-title">Специализация</h3>
+          <FilterBySpecialization />
+          <h3 className="questions-page__sidebar-title">Навыки</h3>
+          <FilterByCategory />
+          <h3 className="questions-page__sidebar-title">Уровень сложности</h3>
+          <FilterByComplexity />
+          <h3 className="questions-page__sidebar-title">Рейтинг</h3>
+          <FilterByRating />
+        </aside>
       )}
     </div>
   );
