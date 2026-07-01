@@ -1,0 +1,15 @@
+.questions-page {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.questions-page__main-container {
+  flex: 1;
+}
+
+.questions-page__sidebar {
+  width: 280px;
+  flex-shrink: 0;
+}

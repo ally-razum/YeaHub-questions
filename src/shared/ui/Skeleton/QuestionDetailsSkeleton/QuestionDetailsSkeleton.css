@@ -1,0 +1,15 @@
+.question-details-skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.question-details-skeleton__h3 {
+  margin-top: 12px;
+  margin-bottom: 4px;
+}

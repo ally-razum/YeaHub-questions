@@ -7,6 +7,9 @@ const QuestionDetailsPage = lazy(
 import { Layout } from "../layouts/Layout";
 import { Error404 } from "@/shared/ui/ErrorStates/Error404";
 
+import { QuestionsSkeleton } from "@/shared/ui/Skeleton/QuestionsSkeleton/QuestionsSkeleton";
+import { QuestionDetailsSkeleton } from "@/shared/ui/Skeleton/QuestionDetailsSkeleton/QuestionDetailsSkeleton";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -15,9 +18,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: (
-          <Suspense
-            fallback={<div>Я ленивая загрузка СПИСКАААААААА 🔎...</div>}
-          >
+          <Suspense fallback={<QuestionsSkeleton />}>
             <QuestionsPage />
           </Suspense>
         ),
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: "questions/:id",
         element: (
-          <Suspense fallback={<div>Загрузка вопроса 🤔...</div>}>
+          <Suspense fallback={<QuestionDetailsSkeleton />}>
             <QuestionDetailsPage />
           </Suspense>
         ),
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: (<Error404 onBackClick={() => window.location.href = "/"}/>),
+    element: <Error404 onBackClick={() => (window.location.href = "/")} />,
   },
 ]);
 
