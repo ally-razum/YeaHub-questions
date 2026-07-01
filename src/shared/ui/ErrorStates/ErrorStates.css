@@ -1,0 +1,88 @@
+.error-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px;
+  text-align: center;
+  border-radius: 16px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.error-state-container--404 {
+  background-color: #edf2f7;
+  border: 1px solid #e2e8f0;
+}
+
+.error-state-container__title--404 {
+  margin: 0;
+  color: #2d3748;
+}
+
+.error-state-container__text--404 {
+  margin: 0;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+.error-state-container--500 {
+  background-color: #fff5f5;
+  border: 1px solid #feb2b2;
+}
+
+.error-state-container__title--500 {
+  margin: 0;
+  color: #9b2c2c;
+}
+
+.error-state-container__text--500 {
+  margin: 0;
+  color: #c53030;
+  line-height: 1.5;
+}
+
+.error-state-container__instruction {
+  margin: 0;
+  color: #e53e3e;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.error-state-container__btn {
+  padding: 10px 20px;
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.error-state-container__btn:hover {
+  background-color: #2b6cb0;
+}
+
+.error-state-container__emoji {
+  font-size: 50px;
+}
+
+/* Специфичные стили для офлайн */
+.error-state-container--offline {
+  background-color: #fffaf0;
+  border: 1px solid #feebc8;
+}
+
+.error-state-container__title--offline {
+  margin: 0;
+  color: #dd6b20;
+}
+
+.error-state-container__text--offline {
+  margin: 0;
+  color: #744210;
+  line-height: 1.5;
+}

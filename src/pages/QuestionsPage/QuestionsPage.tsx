@@ -2,13 +2,14 @@ import { useGetQuestionsQuery } from "@/entities/question/api/questionApi";
 import { QuestionCard } from "@/entities/question/ui/QuestionCard/QuestionCard";
 import { SearchQuestions } from "@/features/search-questions";
 import { useSearchParams } from "react-router-dom";
-
-import "./QuestionsPage.css";
+import { useNavigate } from "react-router-dom";
 import { QuestionPagination } from "@/features/question-pagination";
 import { FilterByComplexity } from "@/features/filter-by-complexity/ui/FilterByComplexity";
 import { FilterByRating } from "@/features/filter-by-rating";
 import { FilterByCategory } from "@/features/filter-by-category";
 import { FilterBySpecialization } from "@/features/filter-by-specialisation/ui/FilterBySpecialization";
+import { getErrorComponent } from "@/shared/lib/helpers/getErrorComponent";
+import "./QuestionsPage.css";
 
 export default function QuestionsPage() {
   const [searchParams] = useSearchParams();
@@ -18,9 +19,10 @@ export default function QuestionsPage() {
   const rate = searchParams.get("rate") || "";
   const skills = searchParams.get("skills") || "";
   const specializationId = searchParams.get("specializationId") || "";
+  const navigate = useNavigate()
 
 
-  const { data, isLoading, isError } = useGetQuestionsQuery({
+  const { data, isLoading, isError, error } = useGetQuestionsQuery({
     title,
     page,
     complexity,
@@ -38,25 +40,24 @@ export default function QuestionsPage() {
       <section className="questions-page__main-container">
         <h1 className="questions-page__title">Вопросы </h1>
         <div className="questions-page__main">
-          {isLoading && <div>Загрузка вопросов с сервера...</div>}
-          {isError && (
-            <div className="questions-page__error-state">
-              ⚠️ Ошибка загрузки данных. Проверьте соединение с сервером!
-            </div>
-          )}
+          {isError && getErrorComponent(error, () => navigate("/"))}
+
           {!isError && data?.data.length === 0 && (
             <div className="questions-page__empty-state">
-              🔍 По вашему запросу ничего не найдено. Попробуйте изменить
+              🔍 По вашему запросу ничего не найдено...Попробуйте изменить
               параметры фильтров или поиска!
             </div>
           )}
-          {!isError &&
+
+          {!isLoading &&
+            !isError &&
             data?.data.map((item) => (
               <QuestionCard key={item.id} question={item} />
             ))}
         </div>
         <QuestionPagination totalPages={totalPages} />
       </section>
+
       {!isError && (
         <aside className="questions-page__sidebar">
           <SearchQuestions />

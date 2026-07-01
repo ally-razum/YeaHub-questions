@@ -4,8 +4,8 @@ const QuestionsPage = lazy(() => import("@/pages/QuestionsPage/QuestionsPage"));
 const QuestionDetailsPage = lazy(
   () => import("@/pages/QuestionDetailsPage/QuestionDetailsPage"),
 );
-const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 import { Layout } from "../layouts/Layout";
+import { Error404 } from "@/shared/ui/ErrorStates/Error404";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +15,9 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: (
-          <Suspense fallback={<div>Я ленивая загрузка СПИСКАААААААА 🔎...</div>}>
+          <Suspense
+            fallback={<div>Я ленивая загрузка СПИСКАААААААА 🔎...</div>}
+          >
             <QuestionsPage />
           </Suspense>
         ),
@@ -32,11 +34,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: (
-      <Suspense fallback={<div>Страница не найдена🤷‍♀️...</div>}>
-        <NotFound />
-      </Suspense>
-    ),
+    element: (<Error404 onBackClick={() => window.location.href = "/"}/>),
   },
 ]);
 
